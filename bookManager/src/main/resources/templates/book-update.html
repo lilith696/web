@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение данных</title>
+    <style type="text/css">
+        body {
+            background: #1D1B26;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-weight: normal;
+        }
+        br, label {
+            font-size: 200%;
+            color:  #ff096c;
+        }
+        input {
+            font-size: 150%;
+        }
+        b{
+            font-weight: normal;
+            text-decoration: red;
+            color: white;
+            display: inline-block;
+            position: relative;
+            padding: 5px 10px;
+            border: 1px solid;
+            border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+            border-image-slice: 1;
+            margin: 10px 20px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            overflow: hidden;
+            letter-spacing: 2px;
+            transition: .8s cubic-bezier(.165, .84, .44, 1);
+            font-size: 50%;
+        }
+        span {
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            z-index: 5;
+        }
+        b:before, b:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        b:before {
+            transform: translateX(-100%);
+            background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+            transition: transform .3s cubic-bezier(.55, .055, .675, .19);
+        }
+        b:after {
+            background: #fd096c;
+            transform: translateX(100%);
+            transition: transform .3s cubic-bezier(.16, .73, .58, .62) .3s;
+        }
+        b:hover:before, b:hover:after {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/book-update}" th:object="${book}" method="post">
+    <label for = "id">ID: </label>
+    <input readonly type="number" th:field = "*{id}" id = "id" placeholder="ID">
+    <br/>
+    <label for = "bookName">Название книги: </label>
+    <input type="text" th:field = "*{bookName}" id = "bookName" placeholder="Название книги">
+    <br/>
+    <label for = "bookAuthor">Автор книги: </label>
+    <input type="text" th:field = "*{bookAuthor}" id = "bookAuthor" placeholder="Автор книги">
+    <br/>
+    <input type = "submit" value="Изменить данные">
+    <br>
+    <input type="button" onclick="history.back();" value="Назад"/>
+</form>
+</body>
+</html>

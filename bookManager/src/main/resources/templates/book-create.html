@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление книги</title>
+    <style type="text/css">
+        body {
+            background: #1D1B26;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-weight: normal;
+        }
+        label {
+            font-size: 200%;
+            color:  #ff096c;
+        }
+        input {
+            font-size: 150%;
+        }
+    </style>
+</head>
+<body>
+<form action = "#" th:action = "@{/book-create}" th:object = "${book}" method = "post">
+    <label for = "bookName"> Название книги </label>
+    <input type = "text" th:field = "*{bookName}" id = "bookName" placeholder = "Название книги">
+    <br>
+    <label for = "bookAuthor"> Автор книги </label>
+    <input type = "text" th:field = "*{bookAuthor}" id = "bookAuthor" placeholder = "Автор книги">
+    <br>
+    <input type = "submit" value = "Добавить книгу">
+    <br>
+    <input type="button" onclick="history.back();" value="Назад"/>
+</form>
+</body>
+</html>
