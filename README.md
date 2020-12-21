@@ -1,1 +1,2 @@
-# web
+# BookList CRUD app 
+# postgresql 
